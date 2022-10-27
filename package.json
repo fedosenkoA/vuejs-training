@@ -5,12 +5,14 @@
   "type": "module",
   "scripts": {
     "dev": "vite --force --host",
+    "watch": "mix watch",
     "build": "vue-tsc --noEmit && vite build",
     "preview": "vite preview",
     "lint": "eslint --ext .js,.vue --ignore-path .gitignore --fix src",
     "format": "prettier .  --write"
   },
   "dependencies": {
+    "scss": "^0.2.4",
     "vue": "^3.2.37",
     "vue-router": "^4.1.5"
   },

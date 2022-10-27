@@ -16,4 +16,14 @@ export default defineConfig({
       '@': '/src',
     },
   },
+  css: {
+    preprocessorOptions: {
+      scss: {
+        additionalData: `$injectedColor: orange;`,
+      },
+      styl: {
+        additionalData: `$injectedColor ?= orange`,
+      },
+    },
+  },
 });
