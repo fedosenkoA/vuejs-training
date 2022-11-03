@@ -14,16 +14,26 @@
   </div>
   <p>Count: {{ numberOfCompletedTodos }}</p>
   <div>
-    <button @click="saveTodos">Save</button>
-    <button @click="deleteCheckedTodos">Delete Checked</button>
-    <button @click="deleteTodos">Delete All</button>
+    <ButtonComponent :label="'Save'" :type="'accept'" @click="saveTodos" />
+    <ButtonComponent
+      :label="'Delete Checked'"
+      :type="'delete'"
+      @click="deleteCheckedTodos"
+    />
+    <ButtonComponent
+      :label="'Delete All'"
+      :type="'delete'"
+      @click="deleteTodos"
+    />
   </div>
 </template>
 
 <script>
-import { computed, ref, watch } from 'vue';
+import { computed, ref } from 'vue';
+import ButtonComponent from './components/ButtonComponent.vue';
 
 export default {
+  components: { ButtonComponent },
   setup() {
     const todo = ref('');
     const todos = ref([]);
@@ -62,7 +72,7 @@ export default {
       todos.value = [];
     };
 
-    watch(
+    const recount = computed(
       todos,
       (newValue) => {
         console.log(`New value: ${newValue.length}`);
