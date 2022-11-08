@@ -6,7 +6,7 @@
     placeholder="Some task to do...."
     @keyup.enter="addTodo"
   />
-  <div class="row">
+  <div class="list">
     <TransitionGroup name="fade" tag="div" class="todo-list">
       <div v-for="item in todos" :key="item.id" class="todo-item">
         <ToDo v-model="ToDo" :item="item" />
@@ -66,13 +66,10 @@ onMounted(() => {
 </script>
 
 <style scoped>
-.row {
+.list {
   padding: 0.5rem 1rem;
-  margin: 0.5rem;
+  margin: 1rem 0.5rem;
   transition: all 0.5s ease;
-}
-.row:hover {
-  transform: translateX(5px);
 }
 input {
   padding: 0.5rem 1rem;

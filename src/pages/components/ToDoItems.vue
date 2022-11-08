@@ -4,92 +4,41 @@
     class="todo-input"
     type="text"
     placeholder="Some task to do...."
-    @keyup.enter="addTodo"
+    @keyup.enter="addItem"
   />
   <div class="todo-container">
-    <div v-for="item in todos" :key="item.id" class="todo-item">
+    <div v-for="item in todo.items" :key="item.id" class="todo-item">
       <input v-model="item.completed" type="checkbox" />
       {{ item.title }}
     </div>
   </div>
   <p>Count: {{ numberOfCompletedTodos }}</p>
   <div>
-    <ButtonComponent :label="'Save'" :type="'accept'" @click="saveTodos" />
-    <ButtonComponent
-      :label="'Delete Checked'"
-      :type="'delete'"
-      @click="deleteCheckedTodos"
-    />
+    <ButtonComponent :label="'Save'" :type="'accept'" @click="saveTodo" />
     <ButtonComponent
       :label="'Delete All'"
       :type="'delete'"
-      @click="deleteTodos"
+      @click="deleteTodo"
     />
   </div>
 </template>
 
-<script>
-import { computed, ref } from 'vue';
+<script setup>
+import { computed, onMounted, ref } from 'vue';
 import ButtonComponent from './ButtonComponent.vue';
+const props = defineProps({
+  list: Object,
+});
 
-export default {
-  components: { ButtonComponent },
-  setup() {
-    const todo = ref('');
-    const todos = ref([]);
-    let id = 0;
+const numberOfCompletedTodos = computed(() => {
+  return props.todo.items.filter((item) => item.completed).length;
+});
 
-    if (localStorage.getItem('todos')) {
-      todos.value = JSON.parse(localStorage.getItem('todos'));
-      id = todos.value.length;
-    }
-
-    const numberOfCompletedTodos = computed(
-      () => todos.value.filter((todo) => todo.completed).length
-    );
-
-    const addTodo = () => {
-      todos.value.push({
-        id: id,
-        title: todo.value.trim(),
-        completed: false,
-      });
-
-      todo.value = '';
-      id++;
-    };
-
-    const saveTodos = () => {
-      localStorage.setItem('todos', JSON.stringify(todos.value));
-    };
-
-    const deleteCheckedTodos = () => {
-      todos.value = todos.value.filter((todo) => !todo.completed);
-    };
-
-    const deleteTodos = () => {
-      localStorage.removeItem('todos');
-      todos.value = [];
-    };
-
-    const recount = computed(
-      todos,
-      (newValue) => {
-        console.log(`New value: ${newValue.length}`);
-      },
-      { deep: true }
-    );
-
-    return {
-      todo,
-      todos,
-      addTodo,
-      saveTodos,
-      deleteCheckedTodos,
-      deleteTodos,
-      numberOfCompletedTodos,
-    };
-  },
+const addItem = () => {
+  props.list.items.push({
+    title: todo.value.trim(),
+  });
+  props.list.title = '';
 };
 </script>
 

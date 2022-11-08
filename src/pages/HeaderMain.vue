@@ -12,8 +12,7 @@
 import { ref } from 'vue';
 const items = [
   { id: 1, name: 'Home', path: '/' },
-  { id: 2, name: 'About', path: '/about' },
-  { id: 3, name: 'Contact', path: '/contact' },
+  { id: 2, name: 'About Me', path: '/about' },
 ];
 </script>
 
@@ -30,9 +29,18 @@ const items = [
 .menu__item {
   padding: 0.5rem 1rem;
   margin: 0.5rem;
+  transition: all 0.5s ease;
+}
+.menu__item:hover {
+  background-color: #c6dfbb;
+  box-shadow: #c6dfbb 0px 3px 8px;
 }
 a {
   color: #50753f;
   text-decoration: none;
+  transition: all 0.5s ease;
+}
+.menu__item:hover a {
+  color: #ffffff;
 }
 </style>

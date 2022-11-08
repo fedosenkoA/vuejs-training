@@ -10,7 +10,7 @@
 .footer {
   padding: 0.5rem 1rem;
   border-top: 2px groove #c6dfbb;
-  margin: 5rem 0.5rem;
+  margin: 1.5rem 0.5rem;
 }
 p {
   color: #000000;

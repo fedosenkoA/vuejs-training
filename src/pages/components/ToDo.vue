@@ -8,9 +8,14 @@
         @:click="editTodo"
       ></ButtonComponent>
       <ButtonComponent
-        :label="'Delete'"
+        :label="'Details'"
+        :type="'details'"
+        @:click="detailsTodo"
+      ></ButtonComponent>
+      <ButtonComponent
+        :label="'x'"
         :type="'delete'"
-        @:click="saveToLocaleStorage"
+        @:click="deleteTodo"
       ></ButtonComponent>
     </div>
   </div>
@@ -19,7 +24,6 @@
 <script setup>
 import { ref } from 'vue';
 import ButtonComponent from './ButtonComponent.vue';
-import CheckComponent from './CheckComponent.vue';
 import ModalComponent from './ModalComponent.vue';
 const props = defineProps({
   item: Object,
@@ -31,8 +35,21 @@ const editTodo = () => {
   });
 };
 
-const saveToLocaleStorage = () => {
-  localStorage.setItem('todos', JSON.stringify(props.item));
+const detailsTodo = () => {
+  // const router = new VueRouter();
+  // router.push({
+  //   name: 'Details',
+  //   params: {
+  //     id: props.item.id,
+  //   },
+  // });
+};
+
+const deleteTodo = () => {
+  const item = JSON.parse(localStorage.getItem('todos'));
+  const index = item.findIndex((x) => x.id === props.item.id);
+  item.splice(index, 1);
+  localStorage.setItem('todos', JSON.stringify(item));
 };
 </script>
 
@@ -42,9 +59,10 @@ const saveToLocaleStorage = () => {
   margin: 0.5rem;
   display: flex;
   justify-content: space-between;
+  transition: all 0.5s ease;
 }
 .row:hover {
-  background-color: #d6e5d4;
+  transform: translateX(5px);
 }
 .title:before {
   content: '';
@@ -54,5 +72,10 @@ const saveToLocaleStorage = () => {
   border-radius: 50%;
   background-color: #545e4f;
   margin-right: 0.5rem;
+  transition: all 0.5s ease;
+}
+
+.row:hover .title:before {
+  background-color: #c6dfbb;
 }
 </style>

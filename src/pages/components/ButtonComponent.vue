@@ -14,7 +14,6 @@ button {
   padding: 0.5rem 1rem;
   border: none;
   border-radius: 5px;
-  /*background-color: #c5deba;*/
   font-size: 1rem;
   cursor: pointer;
   margin: 0.5rem;
@@ -31,5 +30,11 @@ button {
 }
 .delete:hover {
   box-shadow: #dfbbc6 0px 3px 8px;
+}
+.details {
+  background-color: #a4a7de;
+}
+.details:hover {
+  box-shadow: #a4a7de 0px 3px 8px;
 }
 </style>
