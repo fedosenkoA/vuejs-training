@@ -14,7 +14,7 @@
   </div>
   <p>Count: {{ numberOfCompletedTodos }}</p>
   <div>
-    <ButtonComponent :label="'Save'" :type="'accept'" @click="saveTodo" />
+    <ButtonComponent :label="'Save'" :type="'accept'" @click="saveTodo" />a
     <ButtonComponent
       :label="'Delete All'"
       :type="'delete'"

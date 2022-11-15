@@ -1,17 +1,20 @@
 <template>
   <div class="row">
-    <p class="title">{{ props.item.title }}</p>
+    <p class="title">{{ props.item.todo.name }}</p>
     <div class="buttons">
       <ButtonComponent
         :label="'Edit'"
         :type="'accept'"
         @:click="editTodo"
       ></ButtonComponent>
-      <ButtonComponent
-        :label="'Details'"
-        :type="'details'"
-        @:click="detailsTodo"
-      ></ButtonComponent>
+      <a href="'link'" class="link">
+        <ButtonComponent
+          :label="'Details'"
+          :type="'details'"
+          href="/details"
+          @:click="detailsTodo"
+        ></ButtonComponent>
+      </a>
       <ButtonComponent
         :label="'x'"
         :type="'delete'"
@@ -26,23 +29,23 @@ import { ref } from 'vue';
 import ButtonComponent from './ButtonComponent.vue';
 import ModalComponent from './ModalComponent.vue';
 const props = defineProps({
+  id: Object,
   item: Object,
 });
 
+// const link = ref('/todo/' + props.id);
+console.log(props.id);
+
 const editTodo = () => {
-  const modal = new ModalComponent({
-    item: props.item,
-  });
+  console.log(props.item);
 };
 
 const detailsTodo = () => {
-  // const router = new VueRouter();
-  // router.push({
-  //   name: 'Details',
-  //   params: {
-  //     id: props.item.id,
-  //   },
+  // const router = new RouterLink({
+  //   to: '/todo',
+  //   item: props.item,
   // });
+  console.log(props.item);
 };
 
 const deleteTodo = () => {

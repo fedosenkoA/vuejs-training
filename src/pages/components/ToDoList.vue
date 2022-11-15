@@ -29,18 +29,15 @@
 import { onMounted, ref } from 'vue';
 import ButtonComponent from './ButtonComponent.vue';
 import ToDo from './ToDo.vue';
+import ToDoClass from '../../composables/todo.ts';
 
 const todo = ref('');
 const todos = ref([]);
-const id = ref(0);
 
 const addTodo = () => {
   todos.value.push({
-    title: todo.value.trim(),
-    completed: false,
-    items: [],
+    todo: new ToDoClass(todo.value, []),
   });
-
   todo.value = '';
 };
 
