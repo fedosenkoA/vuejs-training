@@ -9,9 +9,8 @@ const routes: Array<RouteRecordRaw> = [
   },
   {
     path: '/todo/:id',
-    name: ':name',
-    component: (): Promise<Component> =>
-      import('../pages/components/ToDoItems.vue'),
+    name: 'ToDoItem',
+    component: (): Promise<Component> => import('@/components/ToDoItems.vue'),
   },
 ];
 
