@@ -5,9 +5,14 @@
     @:click="saveLists"
   ></ButtonComponent>
   <ButtonComponent
-    :label="'Delete'"
+    :label="'Delete All'"
     :type="'delete'"
     @:click="deleteTodos"
+  ></ButtonComponent>
+  <ButtonComponent
+    :label="'Delete Last'"
+    :type="'delete'"
+    @:click="deleteLastTodo"
   ></ButtonComponent>
 </template>
 
@@ -15,5 +20,5 @@
 import ButtonComponent from '../components/ButtonComponent.vue';
 import { useToDoList } from '../composables/list.ts';
 
-const { deleteTodos, saveLists } = useToDoList();
+const { deleteTodos, deleteLastTodo, saveLists } = useToDoList();
 </script>

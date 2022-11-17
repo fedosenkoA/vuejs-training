@@ -1,6 +1,6 @@
 <template>
   <div class="footer">
-    <p>Footer here</p>
+    <p>Alex F.</p>
   </div>
 </template>
 
@@ -13,7 +13,8 @@
   margin: 1.5rem 0.5rem;
 }
 p {
-  color: #000000;
+  float: right;
+  color: #50753f;
   font-size: 12px;
 }
 </style>

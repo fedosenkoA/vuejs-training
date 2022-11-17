@@ -1,4 +1,4 @@
-import { ref, Ref } from 'vue';
+import { onMounted, ref, Ref } from 'vue';
 
 interface ListItems {
   id: number;
@@ -20,6 +20,9 @@ interface ToDoList {
   saveLists: (list: List) => void;
   getLists: () => void;
   deleteTodos: (list: List) => void;
+  deleteLastTodo: () => void;
+  getListName: (id: number) => string;
+  getListItems: (id: number) => ListItems[];
 }
 
 const globalTodoList = ref<List[]>([]);
@@ -42,16 +45,17 @@ export const useToDoList = (): ToDoList => {
     });
   };
   const addListItem = (listId: number, name: string) => {
-    console.log(typeof listId, name);
-    // todoList.value = todoList.value.map((list) => {
-    //   if (list.id === listId) {
-    //     list.records.push({
-    //       id: 1,
-    //       name,
-    //     });
-    //   }
-    //   return list;
-    // });
+    console.log(listId, name);
+    console.log(todoList.value);
+    todoList.value.map((list) => {
+      if (list.id === listId) {
+        list.records.push({
+          id: list.records.length ? list.records.length : 0,
+          name,
+        });
+      }
+    });
+    console.log(todoList.value);
   };
   const removeListItem = (listId: number, id: number) => {
     todoList.value = todoList.value.map((list) => {
@@ -73,6 +77,17 @@ export const useToDoList = (): ToDoList => {
   const deleteTodos = () => {
     localStorage.removeItem('todos');
   };
+  const deleteLastTodo = () => {
+    todoList.value.pop();
+  };
+  const getListName = (id: number) => {
+    const list = todoList.value.find((list) => list.id === id);
+    return list ? list.name : '';
+  };
+  const getListItems = (id: number) => {
+    const list = todoList.value.find((list) => list.id === id);
+    return list ? list.records : [];
+  };
   return {
     todoList,
     addTodo,
@@ -82,5 +97,8 @@ export const useToDoList = (): ToDoList => {
     saveLists,
     getLists,
     deleteTodos,
+    deleteLastTodo,
+    getListName,
+    getListItems,
   };
 };

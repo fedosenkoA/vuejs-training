@@ -3,7 +3,7 @@
     v-model="name"
     class="todo-input"
     type="text"
-    placeholder="Some task to do...."
+    placeholder="Some list to do...."
     @keyup.enter="addTodo(name)"
   />
   <div class="list">
