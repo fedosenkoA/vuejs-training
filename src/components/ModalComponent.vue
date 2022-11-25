@@ -2,24 +2,41 @@
   <div v-show="show" class="modal">
     <div class="modal-content">
       <div class="modal-header">
-        <h2>{{ props.item.title }}</h2>
-        <button class="close" @click="closeModal">x</button>
+        <span class="close" @click="closeModal">&times;</span>
       </div>
-      <div class="modal-body">
-        <slot></slot>
-      </div>
+      <input v-modal="name" type="text" @keyup.enter="renameList(name)" />
       <div class="modal-footer">
-        <slot name="footer"></slot>
+        <ButtonComponent
+          :label="'Rename'"
+          :type="'accept'"
+          @:click="renameList(name)"
+        ></ButtonComponent>
       </div>
     </div>
   </div>
 </template>
 
-<script setup>
-const props = defineProps({
-  item: Object,
-  show: Boolean,
-});
+<script>
+import { ref } from 'vue';
+import { useToDoList } from '../composables/list.ts';
+
+export default {
+  props: {
+    item: Object,
+    show: {
+      type: Boolean,
+      required: true,
+    },
+  },
+  emits: ['close'],
+  setup(props, { emit }) {
+    const name = ref('');
+    const { renameList, renameListItem } = useToDoList();
+    return {
+      name,
+    };
+  },
+};
 
 const closeModal = () => {
   this.show = false;

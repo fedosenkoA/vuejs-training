@@ -8,6 +8,11 @@ const routes: Array<RouteRecordRaw> = [
     component: (): Promise<Component> => import('../pages/HomePage.vue'),
   },
   {
+    path: '/about',
+    name: 'About Me',
+    component: (): Promise<Component> => import('../pages/AboutMePage.vue'),
+  },
+  {
     path: '/todo/:id',
     name: 'ToDoItem',
     component: (): Promise<Component> => import('@/components/ToDoItems.vue'),

@@ -23,6 +23,8 @@ interface ToDoList {
   deleteLastTodo: () => void;
   getListName: (id: number) => string;
   getListItems: (id: number) => ListItems[];
+  renameList: (id: number, name: string) => void;
+  renameListItem: (listId: number, id: number, name: string) => void;
 }
 
 const globalTodoList = ref<List[]>([]);
@@ -88,6 +90,27 @@ export const useToDoList = (): ToDoList => {
     const list = todoList.value.find((list) => list.id === id);
     return list ? list.records : [];
   };
+  const renameList = (id: number, name: string) => {
+    todoList.value = todoList.value.map((list) => {
+      if (list.id === id) {
+        list.name = name;
+      }
+      return list;
+    });
+  };
+  const renameListItem = (listId: number, id: number, name: string) => {
+    todoList.value = todoList.value.map((list) => {
+      if (list.id === listId) {
+        list.records = list.records.map((item) => {
+          if (item.id === id) {
+            item.name = name;
+          }
+          return item;
+        });
+      }
+      return list;
+    });
+  };
   return {
     todoList,
     addTodo,
@@ -100,5 +123,7 @@ export const useToDoList = (): ToDoList => {
     deleteLastTodo,
     getListName,
     getListItems,
+    renameList,
+    renameListItem,
   };
 };

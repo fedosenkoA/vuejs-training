@@ -20,9 +20,7 @@
 </template>
 
 <script setup>
-import { ref } from 'vue';
 import ButtonComponent from './ButtonComponent.vue';
-import ModalComponent from './ModalComponent.vue';
 import { useToDoList } from '../composables/list.ts';
 
 const props = defineProps({
@@ -30,8 +28,6 @@ const props = defineProps({
 });
 
 const { todoList, removeTodo } = useToDoList();
-
-console.log(todoList.value);
 </script>
 
 <style scoped>

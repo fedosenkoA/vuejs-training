@@ -2,9 +2,12 @@
   <div class="footer">
     <p>Alex F.</p>
   </div>
+  <PopUpComponent :showPopUp="false"></PopUpComponent>
 </template>
 
-<script setup></script>
+<script setup>
+import PopUpComponent from '../components/PopUpComponent.vue';
+</script>
 
 <style scoped>
 .footer {
