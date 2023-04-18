@@ -1,7 +1,12 @@
 <template>
-  <ToDoList></ToDoList>
+  <div class="row"></div>
 </template>
 
 <script setup>
-import ToDoList from '@/components/ToDoList.vue';
+import { onMounted } from 'vue';
+import { router } from '../router/index.ts';
+
+onMounted(() => {
+  router.push('/login');
+});
 </script>

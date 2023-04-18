@@ -1,0 +1,53 @@
+// Spacing
+$spacer: 0.625rem !default;
+$spacers: (
+        0: 0,
+        1: $spacer, // 10px
+        2: $spacer * 2, // 20px
+        3: $spacer * 2.4, // 24px
+        4: $spacer * 3.2, // 32px
+        5: $spacer * 4, // 40px
+        6: $spacer * 5, // 50px
+        16: 1rem, // 16px
+        12: 0.75rem, // 12px
+) !default;
+
+// Background
+$body-bg: #FAFAFA !default;
+$bg-info: #FFF6FA !default;
+
+// Typography
+$font-family-sans-serif: 'Hanken Grotesk', sans-serif;
+$font-family-monospace: 'Hanken Grotesk', sans-serif;
+
+// Colors
+$background-color: #f5f5f5 !default;
+$primary: #CB3171 !default;
+$secondary: #DEDEDE !default;
+$info: #FFF6FA !default;
+$font: #464646 !default;
+$darkgray: #858585 !default;
+$lightgray: #e5e5e5 !default;
+$stroke: #DEDEDE !default;
+$error: #FF4444 !default;
+$white: #ffffff !default;
+$accent: #FAFAFA !default;
+
+// Border
+$border-radius: 0.625rem !default;
+$border-color: #DEDEDE !default;
+$border-width: 1px !default;
+
+//// Tables
+$table-color: $font !default;
+
+// Scrollbar
+$scrollbar-color: $secondary !default;
+$scrollbar-thumb-color: $primary !default;
+
+// Toggle
+$form-check-input-border: $primary !default;
+$form-check-input-focus-box-shadow: 0 0 0 0.1rem $secondary !default;
+$form-check-input-width: 1.2em !default;
+$form-check-min-height: 2.5em !default;
+$form-check-input-bg: $lightgray !default;

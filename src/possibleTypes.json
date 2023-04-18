@@ -1,0 +1,35 @@
+{
+  "Requestable": [
+    "Guide",
+    "TransportCompany"
+  ],
+  "Documentable": [
+    "MuseumTicket",
+    "RestaurantBill"
+  ],
+  "Pointable": [
+    "Restaurant",
+    "Museum"
+  ],
+  "NotificationFragment": [
+    "NoGuideAssignedNotification",
+    "NoTransportAssignedNotification",
+    "NoDriverAssignedNotification",
+    "NoRouteAssignedNotification",
+    "SagradaTicketsNotLinkedNotification",
+    "ParkGuellTicketsNotLinkedNotification",
+    "MontserratTicketsNotLinkedNotification",
+    "TicketsPrepaidNotification",
+    "GuideAssignRequestNotification",
+    "GuideRequestAcceptNotification",
+    "GuideRequestDeclineNotification",
+    "TransportAssignRequestNotification",
+    "TransportRequestAcceptNotification",
+    "TransportRequestDeclineNotification",
+    "AutoDistributionPerformedNotification",
+    "SwapBookingsPerformedNotification",
+    "TourStartedNotification",
+    "TourPresentTouristsUpdateNotification",
+    "TourFinishedNotification"
+  ]
+}

@@ -1,0 +1,88 @@
+.timeline-container {
+  width: 90%;
+  padding: 50px 0;
+  margin: 25px auto;
+  position: relative;
+  overflow: hidden;
+}
+.timeline-container::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 50%;
+  margin-left: -1px;
+  width: 2px;
+  height: 100%;
+  background: #f6f6f6;
+  background: linear-gradient(to bottom, transparent 0%, #f6f6f6 5%, #f6f6f6 95%, transparent 100%);
+  z-index: 1;
+}
+
+.timeline-block {
+  width: calc(50% + 8px);
+  display: flex;
+  justify-content: space-between;
+  clear: both;
+}
+.timeline-block-right {
+  float: right;
+  text-align: left;
+}
+.timeline-block-left {
+  float: left;
+  text-align: right;
+  direction: rtl;
+}
+
+.marker {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  border: 2px solid #abc9db;
+  background: #abc9db;
+  margin-top: 10px;
+  z-index: 2;
+}
+
+.timeline-content {
+  width: 95%;
+  padding: 0 15px;
+}
+.timeline-content h3 {
+  margin-top: 5px;
+  font-weight: 500;
+  margin-bottom: 5px;
+}
+.timeline-content p {
+  word-spacing: 1px;
+  direction: ltr;
+  hyphens: auto;
+  hyphenate-limit-chars: 6 3 2;
+  hyphenate-limit-lines: 2;
+  hyphenate-limit-last: always;
+  hyphenate-limit-zone: 8%;
+}
+
+@media screen and (max-width: 768px) {
+  .timeline-container::before {
+    left: 8px;
+    width: 2px;
+  }
+
+  .timeline-block {
+    width: 100%;
+    margin-bottom: 30px;
+    text-align: left;
+  }
+
+  .timeline-block-right {
+    float: none;
+  }
+
+  .timeline-block-left {
+    float: none;
+    direction: ltr;
+  }
+}
+
+/*# sourceMappingURL=timeline.css.map */

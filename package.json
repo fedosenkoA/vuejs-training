@@ -5,20 +5,30 @@
   "type": "module",
   "scripts": {
     "dev": "vite --force --host",
-    "watch": "mix watch",
     "build": "vue-tsc --noEmit && vite build",
     "preview": "vite preview",
     "lint": "eslint --ext .js,.vue --ignore-path .gitignore --fix src",
     "format": "prettier .  --write"
   },
   "dependencies": {
-    "scss": "^0.2.4",
+    "@apollo/client": "^3.7.11",
+    "apollo-boost": "^0.4.9",
+    "apollo-upload-client": "^17.0.0",
+    "axios": "^1.2.0",
+    "bootstrap": "^5.2.3",
+    "graphql": "^15.8.0",
+    "popper.js": "^1.16.1",
+    "v-calendar": "^3.0.0-alpha.8",
     "vue": "^3.2.37",
-    "vue-router": "^4.1.5"
+    "vue-apollo": "^3.1.0",
+    "vue-router": "^4.1.5",
+    "vue-simple-calendar": "^6.3.1",
+    "vuex": "^4.0.2"
   },
   "devDependencies": {
     "@babel/core": "^7.19.3",
     "@babel/eslint-parser": "^7.19.1",
+    "@types/apollo-upload-client": "^17.0.2",
     "@typescript-eslint/eslint-plugin": "^5.40.0",
     "@typescript-eslint/parser": "^5.40.0",
     "@vitejs/plugin-vue": "^3.1.0",
@@ -27,9 +37,11 @@
     "eslint-plugin-prettier": "^4.2.1",
     "eslint-plugin-vue": "^9.6.0",
     "prettier": "^2.7.1",
+    "sass": "^1.57.1",
     "typescript": "^4.6.4",
     "vite": "^3.1.0",
     "vite-plugin-eslint": "^1.8.1",
+    "vite-plugin-static-copy": "^0.13.0",
     "vue-tsc": "^1.0.7"
   }
 }

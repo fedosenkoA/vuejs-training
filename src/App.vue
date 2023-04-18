@@ -1,20 +1,13 @@
 <template>
-  <Header></Header>
+  <Toasts v-if="showToasts" />
   <router-view></router-view>
-  <Footer></Footer>
 </template>
 
 <script setup>
-import Header from './pages/HeaderMain.vue';
-import Footer from './pages/FooterMain.vue';
-</script>
+import Toasts from './components/ToastsNotice.vue';
+import { usePageToasts } from './composebles/use-toast';
+import { computed } from 'vue';
 
-<style>
-#app {
-  font-family: Monserat, sans-serif;
-  font-size: 16px;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  background-color: #ffffff;
-}
-</style>
+const { state } = usePageToasts();
+const showToasts = computed(() => state.toasts);
+</script>

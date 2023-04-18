@@ -1,0 +1,15 @@
+// Variables
+@import "_variables.scss";
+
+// Bootstrap
+@import 'node_modules/bootstrap/scss/bootstrap';
+@import "../node_modules/bootstrap/scss/variables";
+@import "../node_modules/bootstrap/scss/mixins";
+
+//Styles
+@import "custom.scss";
+@import "timeline.scss";
+
+#app {
+  height: 100vh;
+}

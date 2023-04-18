@@ -1,0 +1,39 @@
+.w-15 {
+  width: 100%;
+  max-width: 15rem;
+}
+
+.p-1 {
+  padding: 1rem;
+}
+
+a {
+  text-decoration: none;
+  color: #CB3171;
+}
+
+a:hover {
+  text-decoration: none;
+  color: #F03785;
+}
+
+.list-group-item {
+  border: none;
+}
+
+.tgl-light + .tgl-btn {
+  background: #f0f0f0;
+  border-radius: 2em;
+  padding: 2px;
+  transition: all 0.4s ease;
+}
+.tgl-light + .tgl-btn:after {
+  border-radius: 50%;
+  background: #fff;
+  transition: all 0.2s ease;
+}
+.tgl-light:checked + .tgl-btn {
+  background: #9fd6ae;
+}
+
+/*# sourceMappingURL=custom.css.map */

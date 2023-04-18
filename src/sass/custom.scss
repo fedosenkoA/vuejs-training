@@ -1,0 +1,167 @@
+//Colors
+$background-color: #f5f5f5;
+$primary: #CB3171;
+$primary-hover: #F03785;
+$secondary: #DEDEDE;
+$font: #464646;
+$darkgray: #858585;
+$lightgray: #e5e5e5;
+$stroke: #DEDEDE;
+$error: #FF4444;
+//$success: green;
+//$light:         $gray-100;
+//$dark:          $gray-900;
+//$warning:       $yellow;
+//$info:          $cyan;
+
+//Fonts
+$font-family-sans-serif: 'Hanken Grotesk', sans-serif;
+$font-size-base: 0.9rem;
+$line-height-base: 1.6;
+
+//Sizes
+.w-15 {
+  width: 100%;
+  max-width: 15rem;
+}
+
+//Paddings
+.p-1 {
+  padding: 1rem;
+}
+
+//Links
+a {
+  text-decoration: none;
+  color: $primary;
+}
+
+a:hover {
+    text-decoration: none;
+    color: $primary-hover;
+}
+
+.cursor-pointer {
+  cursor: pointer;
+}
+
+//Icons
+.settable {
+  cursor: pointer;
+}
+
+.settable:hover {
+  transition: 0.2s all ease-in-out;
+  transform: scale(1.2);
+}
+
+//Lists
+.list-group-item {
+  border: none;
+}
+
+//Borders
+$bs-border-radius: 0.625rem;
+
+//Toggle
+.tgl-light {
+  + .tgl-btn {
+    background: #f0f0f0;
+    border-radius: 2em;
+    padding: 2px;
+    transition: all 0.4s ease;
+    &:after {
+      border-radius: 50%;
+      background: #fff;
+      transition: all 0.2s ease;
+    }
+  }
+
+  &:checked + .tgl-btn {
+    background: #9fd6ae;
+  }
+}
+
+//Transitions
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.5s ease;
+}
+
+//Tickets-card
+
+
+.fade-enter-from,
+.fade-leave-to {
+  opacity: 0;
+}
+
+.v-enter-active,
+.v-leave-active {
+  transition: opacity 0.5s ease;
+}
+
+.v-enter-from,
+.v-leave-to {
+  opacity: 0;
+}
+
+.slide-up-enter-active,
+.slide-up-leave-active {
+  transition: all 0.5s ease-out;
+}
+
+.slide-up-enter-from {
+  opacity: 0;
+  transform: translateY(2px);
+}
+
+.slide-up-leave-to {
+  opacity: 0;
+  transform: translateY(-2px);
+}
+
+
+//Scrollbar
+.scrollbar {
+  right: 20px;
+  width: 100%;
+  height: 100%;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  transition: 0.2s all ease-in-out;
+
+  &::-webkit-scrollbar {
+    width: 0.3rem;
+    visibility: hidden;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: $secondary;
+    visibility: hidden;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: $primary;
+    visibility: hidden;
+  }
+}
+
+.scrollbar:hover {
+  transition: 0.2s all ease-in-out;
+
+  &::-webkit-scrollbar {
+    width: 0.3rem;
+    visibility: visible;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: $secondary;
+    visibility: visible;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: $primary;
+    visibility: visible;
+  }
+}
